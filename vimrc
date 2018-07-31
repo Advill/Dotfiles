@@ -22,7 +22,7 @@ set ttyfast
 set hlsearch
 
 "column
-set colorcolumn=80
+set colorcolumn=81
 highlight colorcolumn ctermbg=4
 "pathogen
 execute pathogen#infect()
