@@ -4,5 +4,8 @@ Dotfiles for tmux, zsh, bash, and vim.
 Included with a script to create symlinks for each, as well as to save backups
 of old files.
 
-I'll be the first to admit I don't know what a lot of whats included here does.
-
+There are a few extra peices not included here, namely 
+[Nightshell](https://github.com/nightsense/nightshell) and 
+[Hyperzsh](https://github.com/tylerreckart/hyperzsh), both of which can be
+installed very easily from their repositories, or removed from here, as neither
+of them are required.
