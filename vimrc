@@ -3,6 +3,9 @@ set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
 "enabling sytnatx highlighting
 syn on
 
+"colorscheme
+colorscheme default
+
 "setting tab amounts
 "set tabstop=2 "from a read file
 set softtabstop=4 "when writing a file
@@ -25,5 +28,5 @@ set hlsearch
 set colorcolumn=81
 highlight colorcolumn ctermbg=4
 "pathogen
-execute pathogen#infect()
-call pathogen#helptags()
+"execute pathogen#infect()
+"call pathogen#helptags()

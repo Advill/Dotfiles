@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/mcgloims/.oh-my-zsh
+  export ZSH=/home/mcgloin/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -13,9 +13,9 @@ ZSH_THEME="hyperzsh"
 # CASE_SENSITIVE="true"
 
 # start tmux by default
-case $- in *i*)
-	if [ -z "$TMUX" ]; then exec tmux; fi;;
-esac
+#case $- in *i*)
+#	if [ -z "$TMUX" ]; then exec tmux; fi;;
+#esac
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -34,7 +34,7 @@ DISABLE_LS_COLORS="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -95,6 +95,7 @@ source $ZSH/oh-my-zsh.sh
  alias reloadzsh="source ~/.zshrc"
  alias sources="sudo vim /etc/apt/sources.list"
 # themeing
-[ -n "$PS1" ] && sh ~/.nightshell/forgotten-dark
+#[ -n "$PS1" ] && sh ~/.nightshell/forgotten-dark
 
+ wal -Re > /dev/null
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/mcgloims/.vimpkg/bin:/usr/local/go/bin:/usr/local/share/npm/bin
