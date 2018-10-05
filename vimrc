@@ -14,7 +14,6 @@ set expandtab "tabs are spaces
 
 set number "line numbers
 filetype indent on "load filetype-specific indentations.
-set wildmenu "command auto-completeion YOU MAY HATE THIS
 set lazyredraw "only redraw when needed
 set showmatch "match () [] {}
 
