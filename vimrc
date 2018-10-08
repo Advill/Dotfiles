@@ -10,7 +10,7 @@ colorscheme default
 "set tabstop=2 "from a read file
 set softtabstop=4 "when writing a file
 set shiftwidth=4 "for c
-set expandtab "tabs are spaces
+"set expandtab "tabs are spaces
 
 set number "line numbers
 filetype indent on "load filetype-specific indentations.
