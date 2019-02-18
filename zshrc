@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
   export ZSH=/home/mcgloin/.oh-my-zsh
+  source ~/.rvm/scripts/rvm
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -28,7 +29,7 @@ ZSH_THEME="hyperzsh"
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
-DISABLE_LS_COLORS="true"
+# DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -97,5 +98,8 @@ source $ZSH/oh-my-zsh.sh
 # themeing
 #[ -n "$PS1" ] && sh ~/.nightshell/forgotten-dark
 
- wal -Re > /dev/null
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/mcgloims/.vimpkg/bin:/usr/local/go/bin:/usr/local/share/npm/bin
+(cat ~/.cache/wal/sequences &)
+ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/mcgloims/.vimpkg/bin:/usr/local/go/bin:/usr/local/share/npm/bin
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
