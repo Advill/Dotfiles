@@ -17,7 +17,7 @@ colorscheme default
 "line highlighting
 set cursorline 
 "set line to be highlighted instead of underline, color 18 seems to work
-hi cursorline cterm=NONE ctermbg=18
+hi cursorline cterm=NONE ctermbg=236
 
 "set for specific filetypes
 autocmd Filetype ruby setlocal ts=2 sw=2 sts=2 expandtab
@@ -61,3 +61,6 @@ map <C-l> <C-W>l
 highlight DiffAdd     cterm=bold ctermfg=10
 highlight DiffDelete  cterm=bold ctermfg=1
 highlight DiffChange  cterm=bold ctermfg=3
+
+" Start statusline
+set laststatus=2
