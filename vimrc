@@ -57,11 +57,11 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 "case insensitve searching
-:set ignorecase
-:set smartcase "if contains uppercase, do case sensitve
+set ignorecase
+set smartcase "if contains uppercase, do case sensitve
 
 set hidden " allow buffer switching without saving
-set showtabline=2 "alswas show tabline
+"set showtabline=2 "alswas show tabline
 
 " change highlighting for diff and git
 highlight DiffAdd     cterm=bold ctermfg=10
@@ -69,34 +69,12 @@ highlight DiffDelete  cterm=bold ctermfg=1
 highlight DiffChange  cterm=bold ctermfg=3
 
 " Start statusline
-set laststatus=2
-let g:lightline = {
-  \ 'tabline': {
-  \   'left': [ [ 'bufferinfo' ],
-  \             [ 'separator' ],
-  \             [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
-  \   'right': [ [ 'close' ], ],
-  \ },
-  \ 'component_expand': {
-  \   'buffercurrent': 'lightline#buffer#buffercurrent',
-  \   'bufferbefore': 'lightline#buffer#bufferbefore',
-  \   'bufferafter': 'lightline#buffer#bufferafter',
-  \ },
-  \ 'component_type': {
-  \   'buffercurrent': 'tabsel',
-  \   'bufferbefore': 'raw',
-  \   'bufferafter': 'raw',
-  \ },
-  \ 'component_function': {
-  \   'bufferinfo': 'lightline#buffer#bufferinfo',
-  \ },
-  \ 'component': {
-  \   'separator': '',
-  \ },
-  \ }
 
 "remap arrow keys
 noremap <Left> :bprev<CR>
 noremap <Right> :bnext<CR>
 
-
+set ttimeoutlen=10
+let g:airline_theme='term'
+let g:airline_powerline_fonts = 1
+set noshowmode
