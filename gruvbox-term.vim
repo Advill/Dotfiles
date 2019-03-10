@@ -1,7 +1,4 @@
-
-" vim-airline 'term' theme
-" it is using current terminal colorscheme
-" and in gvim i left colors from 'wombat' theme but i am not using it anyway
+" Slightly modified 'term' theme
 
 " Normal mode
 "          [ guifg, guibg, ctermfg, ctermbg, opts ]
