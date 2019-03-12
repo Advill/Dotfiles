@@ -19,7 +19,8 @@ colorscheme noctu
 "line highlighting
 set cursorline 
 "set line to be highlighted instead of underline, color 236 seems to work
-hi cursorline cterm=NONE ctermbg=236
+"hi cursorline cterm=NONE ctermbg=236
+hi cursorline cterm=NONE ctermbg=18
 
 "setting tab amounts
 set tabstop=2
@@ -45,6 +46,9 @@ set ttyfast
 set hlsearch
 " search as characters are entered
 set incsearch
+
+" graphical menu of file results
+set wildmenu
 
 "column
 set colorcolumn=81

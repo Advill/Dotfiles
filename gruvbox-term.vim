@@ -4,25 +4,25 @@
 "          [ guifg, guibg, ctermfg, ctermbg, opts ]
 let s:N1 = [ '#141413' , '#CAE682' , 232 , 2 ] " mode
 let s:N2 = [ '#CAE682' , '#32322F' , 2 , 'black' ] " info
-let s:N3 = [ '#CAE682' , '#242424' , 2 , 236 ] " statusline
+let s:N3 = [ '#CAE682' , '#242424' , 2 , 18 ] " statusline
 let s:N4 = [ '#86CD74' , 10 ]                   " mode modified
 
 " Insert mode
 let s:I1 = [ '#141413' , '#FDE76E' , 232 , 3 ]
 let s:I2 = [ '#FDE76E' , '#32322F' , 3 , 'black' ]
-let s:I3 = [ '#FDE76E' , '#242424' , 3 , 236 ]
+let s:I3 = [ '#FDE76E' , '#242424' , 3 , 18 ]
 let s:I4 = [ '#FADE3E' , 11 ]
 
 " Visual mode
 let s:V1 = [ '#141413' , '#B5D3F3' , 232 , 4 ]
 let s:V2 = [ '#B5D3F3' , '#32322F' , 4 , 'black' ]
-let s:V3 = [ '#B5D3F3' , '#242424' , 4 , 236 ]
+let s:V3 = [ '#B5D3F3' , '#242424' , 4 , 18 ]
 let s:V4 = [ '#7CB0E6' , 12 ]
 
 " Replace mode
 let s:R1 = [ '#141413' , '#E5786D' , 232 , 1 ]
 let s:R2 = [ '#E5786D' , '#32322F' , 1 , 'black' ]
-let s:R3 = [ '#E5786D' , '#242424' , 1 , 236 ]
+let s:R3 = [ '#E5786D' , '#242424' , 1 , 18 ]
 let s:R4 = [ '#E55345' , 9 ]
 
 " Paste mode
