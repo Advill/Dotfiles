@@ -22,12 +22,16 @@ set cursorline
 "hi cursorline cterm=NONE ctermbg=236
 hi cursorline cterm=NONE ctermbg=18
 
+"Markdown spell checking
+autocmd filetype markdown setlocal spell spelllang=en_us
+
 "setting tab amounts
 set tabstop=2
 set shiftwidth=2
 set softtabstop =2
 set expandtab
 set smarttab
+set eol
 
 "set for specific filetypes
 autocmd filetype ruby setlocal ts=2 sw=2 sts=2 expandtab
