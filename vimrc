@@ -16,6 +16,9 @@ syn on
 "colorscheme
 colorscheme noctu
 
+" scroll padding
+set scrolloff=10 "keep 10 lines below and above cursor
+
 "line highlighting
 set cursorline 
 "set line to be highlighted instead of underline, color 236 seems to work
@@ -37,6 +40,10 @@ set eol
 autocmd filetype ruby setlocal ts=2 sw=2 sts=2 expandtab
 autocmd filetype python setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype haskell setlocal ts=2 sw=2 sts=2 expandtab
+autocmd Filetype c setlocal ts=4 sw=4 noexpandtab
+autocmd Filetype make setlocal ts=4 sw=4 noexpandtab
+
+autocmd BufNewFile,BufRead *.svelte set syntax=html
 
 set number "line numbers
 filetype indent on "load filetype-specific indentations.
@@ -83,6 +90,6 @@ noremap <Left> :bprev<CR>
 noremap <Right> :bnext<CR>
 
 set ttimeoutlen=10
-let g:airline_theme='term'
-let g:airline_powerline_fonts = 1
+"TODO Fix this  let g:airline_theme='term'
+" let g:airline_powerline_fonts = 1
 set noshowmode
