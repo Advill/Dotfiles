@@ -4,6 +4,7 @@ execute pathogen#infect()
 
 "NERDTree specirfics:
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 autocmd bufenter * if (winnr ("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -14,10 +15,16 @@ set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
 syn on
 
 "colorscheme
-colorscheme noctu
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_sign_column = 'bg0'
+" Improved strings, useful but keeping regular for now
+" let g:gruvbox_improved_strings = 1
+let g:gruvbox_color_column = 'blue'
+colorscheme gruvbox
+set termguicolors
 
 " scroll padding
-set scrolloff=10 "keep 10 lines below and above cursor
+set scrolloff=15 "keep 10 lines below and above cursor
 
 "line highlighting
 set cursorline 
@@ -63,7 +70,7 @@ set wildmenu
 
 "column
 set colorcolumn=81
-highlight colorcolumn ctermbg=4
+"highlight colorcolumn ctermbg=4
 
 "better movement between panes
 map <C-j> <C-W>j
@@ -79,19 +86,28 @@ set hidden " allow buffer switching without saving
 "set showtabline=2 "alswas show tabline
 
 " change highlighting for diff and git
-highlight DiffAdd     cterm=bold ctermfg=10
-highlight DiffDelete  cterm=bold ctermfg=1
-highlight DiffChange  cterm=bold ctermfg=3
-
-" Start statusline
+"highlight DiffAdd     cterm=bold ctermfg=10
+"highlight DiffDelete  cterm=bold ctermfg=1
+"highlight DiffChange  cterm=bold ctermfg=3
 
 "remap arrow keys
 noremap <Left> :bprev<CR>
 noremap <Right> :bnext<CR>
 
 set ttimeoutlen=10
-"TODO Fix this  let g:airline_theme='term'
-" let g:airline_powerline_fonts = 1
 set noshowmode
 
+" ycm options
 let g:ycm_global_ycm_extra_conf = '~/Documents/classes/networking/.ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+" folding
+"set foldmethod=indent
+"set foldlevel=1
+"set foldclose=all
+"set foldnestmax=2
+
+" Neovim specific configurations
+if has('nvim')
+  set laststatus=0 ruler
+endif

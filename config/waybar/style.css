@@ -1,0 +1,104 @@
+/* Waybar theme with gruvbox colors */
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #1d2021;
+    color: #000000;
+    transition-property: background, background-color;
+    transition-duration: .5s;
+    border-radius: 0;
+}
+
+window#waybar.hidden {
+    opacity: 1;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: #ebdbb2;
+}
+
+#workspaces button.focused {
+    background: #7c6f64;
+}
+
+#workspaces button.urgent {
+    background-color: #d65d0e;
+}
+
+#mode {
+    background: #64727D;
+}
+
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
+    padding: 0 10px;
+    margin: 0 5px;
+    color: #ebdbb2;
+}
+
+#battery.charging {
+    background-color: #458588;
+}
+
+@keyframes blink {
+    to {
+        background: #1d2021;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background: #cc241d;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#network.disconnected {
+    background: #f53c3c;
+}
+
+#temperature.critical {
+    background: #eb4d4b;
+}
+
+#tray {
+    background-color: #2980b9;
+}
+
+#idle_inhibitor {
+    background-color: #282828;
+}
+
+#idle_inhibitor.activated {
+    background-color: #7c6f64;
+}
+
+#mpd {
+    background: #66cc99;
+}
+
+#mpd.disconnected {
+    background: #f53c3c;
+}
+
+#mpd.stopped {
+    background: #90b1b1;
+}
+
+#mpd.paused {
+    background: #51a37a;
+}
+

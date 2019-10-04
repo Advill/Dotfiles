@@ -1,0 +1,18 @@
+[submodule "config/nvim/bundle/vim-closer"]
+	path = config/nvim/bundle/vim-closer
+	url = git@github.com:rstacruz/vim-closer
+[submodule "config/nvim/bundle/gruvbox"]
+	path = config/nvim/bundle/gruvbox
+	url = git@github.com:morhetz/gruvbox
+[submodule "config/nvim/bundle/nerdtree"]
+	path = config/nvim/bundle/nerdtree
+	url = git@github.com:scrooloose/nerdtree
+[submodule "config/nvim/bundle/nerdtree-git-plugin"]
+	path = config/nvim/bundle/nerdtree-git-plugin
+	url = git@github.com:Xuyuanp/nerdtree-git-plugin
+[submodule "config/nvim/bundle/nim.vim"]
+	path = config/nvim/bundle/nim.vim
+	url = git@github.com:zah/nim.vim
+[submodule "config/nvim/bundle/vim-gitgutter"]
+	path = config/nvim/bundle/vim-gitgutter
+	url = git@github.com:airblade/vim-gitgutter
