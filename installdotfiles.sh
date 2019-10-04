@@ -3,7 +3,7 @@
 # Script to make symlinks to all dotfiles stored here
 dir=$(pwd)
 files="bashrc zshrc tmux.conf vimrc"
-configfolders="rofi sway termite waybar"
+configfolders="nvim rofi sway termite waybar"
 echo "current directory is ${dir}"
 echo "moving current dotfiles to backup directory"
 

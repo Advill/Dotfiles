@@ -93,3 +93,5 @@ set ttimeoutlen=10
 "TODO Fix this  let g:airline_theme='term'
 " let g:airline_powerline_fonts = 1
 set noshowmode
+
+let g:ycm_global_ycm_extra_conf = '~/Documents/classes/networking/.ycm_extra_conf.py'
