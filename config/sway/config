@@ -35,14 +35,13 @@ set $browser firefox
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
 output * bg $bg fill
 # TODO: Figure out why this doesnt work
-# swaybg_command swaybg Pictures/wallpapers/old.jpg fill
+# swaybg_command swaybg -i Pictures/wallpapers/old.jpg
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-# output eDP-1 scale 1.85
 output eDP-1 scale 2
 
 ### Idle configuration
@@ -53,6 +52,8 @@ exec swayidle -w \
          before-sleep 'swaylock' \
          lock 'swaylock'
 bindsym --release $mod+l exec loginctl lock-session
+
+exec_always --no-startup-id flashfocus
 
 ### Input configuration
 input "1739:31251:DLL06E5:01_06CB:7A13_Touchpad" {
