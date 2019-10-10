@@ -71,7 +71,7 @@ input "1739:31251:DLL06E5:01_06CB:7A13_Touchpad" {
     gaps inner 15
 
 ### Notifications
-    exec mako --background-color \#00000070 --border-size 0 --margin 10 --padding 7
+    exec mako
 
 ### Key bindings
 #
