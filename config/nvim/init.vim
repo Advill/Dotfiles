@@ -1,6 +1,5 @@
-"pathogen
+"pathogen - a vim package manager
 execute pathogen#infect()
-"call pathogen#helptags()
 
 "NERDTree specifics:
 map <C-n> :NERDTreeToggle<CR>
