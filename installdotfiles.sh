@@ -5,23 +5,23 @@ dir=$(pwd)
 files="bashrc zshrc tmux.conf vimrc"
 configfolders="nvim rofi sway termite waybar"
 echo "current directory is ${dir}"
-echo "moving current dotfiles to backup directory"
+echo "moving current dotfiles to backup directory and installing new ones"
 
-mkdir ./old
-mkdir ./old/config
+mkdir -p ./old
+mkdir -p ./old/config
 
 for file in $files; do
-	echo "Moving $file"
+	echo "Moving ${file}"
 	mv ~/.$file $dir/old
-	echo "Creating symlink to $file in home directory"
+	echo "Creating symlink to ${file} in home directory"
 	ln -s $dir/$file ~/.$file
 done
 
 echo
 echo "Installing ~/.config files"
 for folder in $configfolders; do
-  echo "Moving $folder"
+  echo "Moving ${folder}"
   mv ~/.config/$folder $dir/old/config
-  echo "Creating symlink to $folder in config"
+  echo "Creating symlink to ${folder} in config"
   ln -s $dir/config/$folder ~/.config/$folder
 done
