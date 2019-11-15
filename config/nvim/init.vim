@@ -20,6 +20,7 @@ let g:gruvbox_sign_column = 'bg0'
 " Improved strings, useful but keeping regular for now
 " let g:gruvbox_improved_strings = 1
 let g:gruvbox_color_column = 'blue'
+let g:gruvbox_italic = 1
 colorscheme gruvbox
 " vim ignores terminal-set colors
 set termguicolors
