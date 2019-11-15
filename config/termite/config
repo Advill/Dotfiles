@@ -1,6 +1,10 @@
 [options]
-font = mononoki
-# font = creep 14
+# font = mononoki
+# font = iosevka 12
+font = hack
+# cell_height_scale = 1.5
+ allow_bold = 1
+
 
 [colors]
 # hard contrast:
