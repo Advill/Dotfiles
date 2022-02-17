@@ -1,5 +1,12 @@
-"pathogen - a vim package manager
-execute pathogen#infect()
+call plug#begin()
+  Plug 'preservim/nerdtree'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'bling/vim-bufferline'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'petertriho/nvim-scrollbar'
+  Plug 'morhetz/gruvbox'
+  Plug 'vim-airline/vim-airline'
+call plug#end()
 
 "NERDTree specifics:
 map <C-n> :NERDTreeToggle<CR>
@@ -7,14 +14,13 @@ let NERDTreeShowHidden=1
 
 " If opened to a directory, open nerdtree instead of the vim directory viewer
 autocmd bufenter * if (winnr ("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-
-"setting the status line
-set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
-"enabling sytnatx highlighting
-syn on
-
-"colorscheme - most of this is gruvbox-specific
+if (has("nvim"))
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+else
+  set termguicolors
+endif
+" colorscheme - most of this is gruvbox-specific
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_sign_column = 'bg0'
 " Improved strings, useful but keeping regular for now
@@ -22,8 +28,10 @@ let g:gruvbox_sign_column = 'bg0'
 let g:gruvbox_color_column = 'blue'
 let g:gruvbox_italic = 1
 colorscheme gruvbox
-" vim ignores terminal-set colors
-set termguicolors
+"setting the status line
+set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
+"enabling sytnatx highlighting
+syn on
 
 " scroll padding
 set scrolloff=15 "keep 15 lines below and above cursor
@@ -31,7 +39,7 @@ set scrolloff=15 "keep 15 lines below and above cursor
 "line highlighting
 set cursorline 
 "set line to be highlighted instead of underline
-hi cursorline cterm=NONE ctermbg=18
+hi cursorline cterm=NONE ctermbg=Black
 
 "Markdown spell checking
 autocmd filetype markdown setlocal spell spelllang=en_us

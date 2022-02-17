@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/advil/.oh-my-zsh"
+  export ZSH="$HOME/.oh-my-zsh"
   export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 ZSH_THEME="hyperzsh"
@@ -33,13 +33,7 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias diff="icdiff"
+#alias diff="icdiff"
 alias vim="nvim"
 
-export _JAVA_AWT_WM_NONREPARENTING=1
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/advil/Documents/work/installs/google-cloud-sdk/path.zsh.inc' ]; then . '/home/advil/Documents/work/installs/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/advil/Documents/work/installs/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/advil/Documents/work/installs/google-cloud-sdk/completion.zsh.inc'; fi
+#export _JAVA_AWT_WM_NONREPARENTING=1
