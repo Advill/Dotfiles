@@ -4,8 +4,13 @@ call plug#begin()
   Plug 'bling/vim-bufferline'
   Plug 'airblade/vim-gitgutter'
   Plug 'petertriho/nvim-scrollbar'
-  Plug 'morhetz/gruvbox'
+  Plug 'gruvbox-community/gruvbox'
   Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'sudormrfbin/cheatsheet.nvim'
 call plug#end()
 
 "NERDTree specifics:
@@ -14,20 +19,21 @@ let NERDTreeShowHidden=1
 
 " If opened to a directory, open nerdtree instead of the vim directory viewer
 autocmd bufenter * if (winnr ("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-if (has("nvim"))
-  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-else
-  set termguicolors
-endif
+set termguicolors
 " colorscheme - most of this is gruvbox-specific
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_sign_column = 'bg0'
-" Improved strings, useful but keeping regular for now
-" let g:gruvbox_improved_strings = 1
 let g:gruvbox_color_column = 'blue'
 let g:gruvbox_italic = 1
+let g:gruvbox_invert_selection = 0
+"let g:gruvbox_transparent_bg = 1
+"let g:gruvbox_colors = {'bg0' : ''}
 colorscheme gruvbox
+
+
+"set bufferline
+let g:bufferline_echo = 0
+let g:bufferline_fname_mod = ':.'
 "setting the status line
 set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
 "enabling sytnatx highlighting
@@ -51,6 +57,7 @@ set softtabstop =2
 set expandtab
 set smarttab
 set eol
+set list listchars=tab:»·,trail:·
 
 "set for specific filetypes
 " 2 spaces
@@ -98,6 +105,8 @@ set hidden " allow buffer switching without saving
 "remap arrow keys
 noremap <Left> :bprev<CR>
 noremap <Right> :bnext<CR>
+
+"remap 
 
 set ttimeoutlen=10 " Time in milliseconds to wait for a key code sequence to
 " complete
