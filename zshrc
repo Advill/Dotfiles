@@ -2,8 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="$HOME/.oh-my-zsh"
-  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export ZSH="$HOME/.oh-my-zsh"
+#export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 ZSH_THEME="hyperzsh"
 
