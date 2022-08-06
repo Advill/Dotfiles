@@ -3,7 +3,7 @@
 
 # Path to your oh-my-zsh installation.
   export ZSH="$HOME/.oh-my-zsh"
-  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+#  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 ZSH_THEME="hyperzsh"
 
@@ -23,6 +23,7 @@ if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
   export EDITOR='nvim'
+  alias vim="nvim"
 fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -34,6 +35,12 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #alias diff="icdiff"
-alias vim="nvim"
 
-#export _JAVA_AWT_WM_NONREPARENTING=1
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+#run tmux if not already started
+if [ -x "$(command -v tmux)" ] && [ -z "${TMUX}" ]; then
+  tmux attach || tmux >/dev/null 2>&1;
+  exit
+fi

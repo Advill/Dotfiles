@@ -1,4 +1,6 @@
 call plug#begin()
+  Plug 'tpope/vim-surround'
+  Plug 'Raimondi/delimitMate'
   Plug 'preservim/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'bling/vim-bufferline'
@@ -11,6 +13,11 @@ call plug#begin()
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'sudormrfbin/cheatsheet.nvim'
+  Plug 'Yggdroot/indentLine'
+  Plug 'williamboman/nvim-lsp-installer'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'jose-elias-alvarez/null-ls.nvim'
+  Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 call plug#end()
 
 "NERDTree specifics:
@@ -24,9 +31,10 @@ set termguicolors
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_sign_column = 'bg0'
 let g:gruvbox_color_column = 'blue'
+let g:gruvbox_colors = {'dark0_hard': 'none'}
 let g:gruvbox_italic = 1
 let g:gruvbox_invert_selection = 0
-"let g:gruvbox_transparent_bg = 1
+let g:gruvbox_transparent_bg = 1
 "let g:gruvbox_colors = {'bg0' : ''}
 colorscheme gruvbox
 
@@ -46,9 +54,11 @@ set scrolloff=15 "keep 15 lines below and above cursor
 set cursorline 
 "set line to be highlighted instead of underline
 hi cursorline cterm=NONE ctermbg=Black
+let g:indentLine_char = '|'
 
 "Markdown spell checking
 autocmd filetype markdown setlocal spell spelllang=en_us
+autocmd filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 "setting tab amounts, default is 2 spaces
 set tabstop=2
@@ -99,7 +109,7 @@ map <C-l> <C-W>l
 "case insensitve searching
 set ignorecase
 set smartcase "if contains uppercase, do case sensitve
-
+let delimitMate_expand_cr=1
 set hidden " allow buffer switching without saving
 
 "remap arrow keys
@@ -116,7 +126,19 @@ set noshowmode " Dont show current mode
 let g:ycm_global_ycm_extra_conf = '~/Documents/classes/networking/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_completion = 1
 
+" Indentline turn off hiding `"` in json and whatever it does to markdown
+let g:indentLine_concealcursor = ''
+"let g:vim_json_conceal=0
+"let g:markdown_json_conceal=0
+
+" delimitmate
+let g:delimitMate_expand_cr=1
+let g:delimitMate_expand_space=1
+let g:delimitMate_jump_expansion=1
+let g:delimitMate_exluded_ft="vimrc"
+
 " Neovim specific configurations
 if has('nvim')
   set laststatus=0 ruler
+  lua require("lsp-config")
 endif
