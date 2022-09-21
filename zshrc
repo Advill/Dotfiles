@@ -41,6 +41,7 @@ eval "$(pyenv virtualenv-init -)"
 
 #run tmux if not already started
 if [ -x "$(command -v tmux)" ] && [ -z "${TMUX}" ]; then
-  tmux attach || tmux >/dev/null 2>&1;
+  # tmux attach || tmux >/dev/null 2>&1;
+  tmux >/dev/null 2>&1;
   exit
 fi
