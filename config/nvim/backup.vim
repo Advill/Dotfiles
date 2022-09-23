@@ -35,7 +35,6 @@ let g:gruvbox_colors = {'dark0_hard': 'none'}
 let g:gruvbox_italic = 1
 let g:gruvbox_invert_selection = 0
 let g:gruvbox_transparent_bg = 1
-"let g:gruvbox_colors = {'bg0' : ''}
 colorscheme gruvbox
 
 
