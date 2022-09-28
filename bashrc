@@ -6,10 +6,14 @@
 [[ $- != *i* ]] && return
 
 ## set env variables
-export GDK_BACKEND=wayland
-export CLUTTER_BACKEND=wayland
+#export GDK_BACKEND=wayland
+#export CLUTTER_BACKEND=wayland
 
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
-exec zsh
+#exec zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

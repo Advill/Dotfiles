@@ -2,8 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/advil/.oh-my-zsh"
-  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export ZSH="$HOME/.oh-my-zsh"
+#export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 ZSH_THEME="hyperzsh"
 
@@ -23,6 +23,7 @@ if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
   export EDITOR='nvim'
+  alias vim="nvim"
 fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -33,13 +34,14 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias diff="icdiff"
-alias vim="nvim"
+#alias diff="icdiff"
 
-export _JAVA_AWT_WM_NONREPARENTING=1
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/advil/Documents/work/installs/google-cloud-sdk/path.zsh.inc' ]; then . '/home/advil/Documents/work/installs/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/advil/Documents/work/installs/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/advil/Documents/work/installs/google-cloud-sdk/completion.zsh.inc'; fi
+#run tmux if not already started
+if [ -x "$(command -v tmux)" ] && [ -z "${TMUX}" ]; then
+  # tmux attach || tmux >/dev/null 2>&1;
+  tmux >/dev/null 2>&1;
+  exit
+fi
