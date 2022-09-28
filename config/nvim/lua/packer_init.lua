@@ -27,7 +27,8 @@ return require('packer').startup(function(use)
     'williamboman/mason-lspconfig.nvim',
     config = function()
       require("mason-lspconfig").setup {
-        automatic_installation = false,
+        automatic_installation = true,
+        auto_update = true,
       }
     end
   }
@@ -88,7 +89,6 @@ return require('packer').startup(function(use)
       vim.g.indent_blankline_use_treesitter = true
       vim.g.indent_blankline_use_treesitter_scope = true
       vim.g.indent_blankline_show_trailing_blankline_indent = false
-      --vim.cmd.highlight "IndentBlanklineChar guifg=Grey30 gui=nocombine"
       require'indent_blankline'.setup {
         show_current_context = true,
         show_current_context_start = true,
@@ -140,21 +140,25 @@ return require('packer').startup(function(use)
     config = function()
       require('lualine').setup {
         options = {
-          theme = 'auto',
-          ignore_focus = {},
-          refresh = {
-            statusline = 1000,
-            tabline = 1000,
-            winbar = 1000,
-          }
+          theme = 'gruvbox',
+          component_separators = { left = '|', right = '|' },
+          section_separators = { left = '', right = '' },
         },
         sections = {
           lualine_a = {'mode'},
           lualine_b = {'branch', 'diff', 'diagnostics'},
           lualine_c = {'filename'},
-          lualine_x = {'encoding', 'fileformat', 'filetype'},
-          lualine_y = {'progress'},
+          lualine_x = {},
+          lualine_y = {},
           lualine_z = {'location'}
+        },
+        tabline= {
+          lualine_a = {'buffers'},
+          lualine_b = {},
+          lualine_c = {},
+          lualine_x = {},
+          lualine_y = {},
+          lualine_z = {'tabs'}
         },
         inactive_sections = {
           lualine_a = {},
@@ -179,7 +183,7 @@ return require('packer').startup(function(use)
         overrides = {
           -- GruvboxBg0 = {bg = nil, fg = nil},
           -- Normal = {bg = nil, fg = nil}
-          ColorColumn = {bg = '#458588'}
+          --ColorColumn = {bg = '#458588'}
         }
       }
     end
