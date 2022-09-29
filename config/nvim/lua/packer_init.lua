@@ -14,13 +14,6 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  -- NERDTREE replacement
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icons
-    },
-  }
   -- Language servers
   use 'williamboman/mason.nvim'
   use {
@@ -85,7 +78,7 @@ return require('packer').startup(function(use)
   use {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
-      vim.g.indent_blankline_char = '¦'
+      vim.g.indent_blankline_char = '│'
       vim.g.indent_blankline_use_treesitter = true
       vim.g.indent_blankline_use_treesitter_scope = true
       vim.g.indent_blankline_show_trailing_blankline_indent = false
@@ -131,6 +124,24 @@ return require('packer').startup(function(use)
   use {
     "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
+  }
+
+  -- Tree
+  use {
+  "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = { 
+      "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    },
+    config = function()
+      vim.g.neo_tree_remove_legacy_commands = 1
+      require("neo-tree").setup {
+        close_if_last_window = true,
+      }
+      _G.map('n', '<C-n>', ':Neotree float toggle <CR>')
+    end
   }
 
   -- Theming
@@ -186,11 +197,11 @@ return require('packer').startup(function(use)
           --ColorColumn = {bg = '#458588'}
         }
       }
+      vim.cmd("colorscheme gruvbox")
     end
   }
 
 
-  vim.cmd("colorscheme gruvbox")
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
