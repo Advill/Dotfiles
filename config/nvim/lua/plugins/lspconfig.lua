@@ -13,9 +13,11 @@ local lsp_configs = {
   ansiblels = {},
   bashls = {},
   pyright = {},
-  omnisharp = {},
-  jsonls = {},
-  prosemd_lsp = {},
+  jsonls = {
+--    function ()
+--      cmd = { "vscode-json-languageserver", "--stdio" }
+--    end
+  },
   powershell_es = {},
   tsserver = {
     commands = {
@@ -60,8 +62,7 @@ local lsp_configs = {
   },
 }
 
-local base_capabilities = vim.lsp.protocol.make_client_capabilities()
-local capabilities = require('cmp_nvim_lsp').update_capabilities(base_capabilities)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local base_lsp_config = {
@@ -172,8 +173,8 @@ null_ls.setup {
     null_ls.builtins.code_actions.gitsigns,
     null_ls.builtins.diagnostics.alex,
     -- JavaScript/TypeScript
-    null_ls.builtins.code_actions.eslint_d,
-    null_ls.builtins.diagnostics.eslint_d,
+    --null_ls.builtins.code_actions.eslint_d,
+    --null_ls.builtins.diagnostics.eslint_d,
     null_ls.builtins.formatting.prettier,
     -- Shell
     null_ls.builtins.code_actions.shellcheck,

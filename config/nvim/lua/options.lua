@@ -13,9 +13,9 @@ vim.opt.signcolumn = 'number'
 vim.opt.relativenumber = false
 vim.opt.scrolloff = 15
 vim.opt.splitright = true
-vim.opt.wrap = false
-vim.opt.cmdheight = 2
-vim.opt.colorcolumn = '81'
+vim.opt.cmdheight = 0
+-- vim.opt.wrapmargin = 120
+vim.opt.colorcolumn = '81,121'
 vim.opt.showmode = false
 
 -- Search
@@ -46,3 +46,6 @@ vim.opt.smartindent = true
 -- disable netrw
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
+
+-- autocomands
+--vim.api.nvim_create_autocmd

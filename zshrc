@@ -12,7 +12,7 @@ ZSH_THEME="hyperzsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git debian tmux zsh-navigation-tools zsh-interactive-cd)
+plugins=(git debian tmux zsh-navigation-tools)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -36,8 +36,9 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #alias diff="icdiff"
 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# todo: add check to see if pyenv is installed.
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
 #run tmux if not already started
 if [ -x "$(command -v tmux)" ] && [ -z "${TMUX}" ]; then
@@ -45,3 +46,9 @@ if [ -x "$(command -v tmux)" ] && [ -z "${TMUX}" ]; then
   tmux >/dev/null 2>&1;
   exit
 fi
+
+alias tree="tree -I 'node_modules'"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

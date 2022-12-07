@@ -15,7 +15,11 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Language servers
-  use 'williamboman/mason.nvim'
+  use {
+    'williamboman/mason.nvim',
+    config = require('mason').setup ()
+  }
+
   use {
     'williamboman/mason-lspconfig.nvim',
     config = function()
@@ -100,17 +104,31 @@ return require('packer').startup(function(use)
 
   -- Autocompletion
   use {
-    'L3MON4D3/LuaSnip'
+    'L3MON4D3/LuaSnip',
+    config = function () require("luasnip.loaders.from_vscode")
+      .load({ paths = { "./snippets" } })
+    end
+  }
+
+  use {
+    "windwp/nvim-autopairs",
+    config = function ()
+
+      require("nvim-autopairs").setup {
+        enable_check_bracket_line = true
+      }
+    end
   }
 
   use {
     'hrsh7th/nvim-cmp',
     config = function()
-      require('cmp')
-      --cmp.event:on(
-      --'confirm_done',
-      --cmp_autopairs.on_confirm_done()
-      --)
+      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+      local cmp = require('cmp')
+      cmp.event:on(
+        'confirm_done',
+        cmp_autopairs.on_confirm_done()
+      )
     end
   }
   use 'hrsh7th/cmp-nvim-lsp'
@@ -121,12 +139,8 @@ return require('packer').startup(function(use)
   use 'onsails/lspkind.nvim'
   use 'saadparwaiz1/cmp_luasnip'
 
-  use {
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-  }
 
-  -- Tree
+  -- Neo Tree
   use {
   "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
@@ -140,7 +154,7 @@ return require('packer').startup(function(use)
       require("neo-tree").setup {
         close_if_last_window = true,
       }
-      _G.map('n', '<C-n>', ':Neotree float toggle <CR>')
+      _G.map('n', '<C-n>', ':Neotree toggle <CR>')
     end
   }
 
@@ -188,7 +202,7 @@ return require('packer').startup(function(use)
     config = function()
       require("gruvbox").setup {
         contrast = "hard", -- can be "hard", "soft" or empty string
-        dim_inactive = true,
+        dim_inactive = false,
         transparent_mode = true,
         invert_selection = true,
         overrides = {
