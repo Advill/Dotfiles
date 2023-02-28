@@ -12,11 +12,7 @@ local lsp = require 'lspconfig'
 local lsp_configs = {
   ansiblels = {},
   bashls = {},
-  jsonls = {
---    function ()
---      cmd = { "vscode-json-languageserver", "--stdio" }
---    end
-  },
+  jsonls = {},
   powershell_es = {},
   tsserver = {
     commands = {
@@ -78,6 +74,16 @@ vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 local select_opts = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup {
+  enabled = function ()
+    -- disable completion in comments
+    local context = require 'cmp.config.context'
+    if vim.api.nvim_get_mode().mode == 'c' then
+      return true
+    else
+      return not context.in_treesitter_capture('comment')
+        and not context.in_syntax_group('comment')
+    end
+  end,
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -93,6 +99,9 @@ cmp.setup {
   },
   window = {
     documentation = cmp.config.window.bordered()
+  },
+  view = {
+    entries = { name = 'custom', selection_order = 'near_cursor' }
   },
   completion = {
     keyword_length = 1,
@@ -148,11 +157,26 @@ cmp.setup {
     ghost_text = true,
   },
 }
+cmp.setup.cmdline({ '/', '?'}, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources(
+    {{ name = 'path' }},
+    {{ name = 'cmdline' }}
+  )
+})
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on(
   'confirm_done',
-  cmp_autopairs.on_confirm_done()
+  function ()
+    cmp_autopairs.on_confirm_done()
+  end
 )
 
 local null_ls = require "null-ls";

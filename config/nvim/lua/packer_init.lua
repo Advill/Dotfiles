@@ -104,11 +104,11 @@ return require('packer').startup(function(use)
   }
 
   -- Autocompletion
+  use 'rafamadriz/friendly-snippets'
   use {
     'L3MON4D3/LuaSnip',
     config = function ()
---      require("luasnip.loaders.from_vscode")
---        .load({ paths = { "./snippets" } })
+      require('luasnip.loaders.from_vscode').lazy_load()
     end
   }
 
@@ -137,9 +137,9 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-nvim-lua'
-  use 'onsails/lspkind.nvim'
+  use 'hrsh7th/cmp-cmdline'
   use 'saadparwaiz1/cmp_luasnip'
-
+  use 'onsails/lspkind.nvim'
 
   -- Neo Tree
   use {
@@ -154,6 +154,7 @@ return require('packer').startup(function(use)
       vim.g.neo_tree_remove_legacy_commands = 1
       require("neo-tree").setup {
         close_if_last_window = true,
+        
       }
       _G.map('n', '<C-n>', ':Neotree toggle <CR>')
     end
