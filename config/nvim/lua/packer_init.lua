@@ -92,28 +92,29 @@ return require('packer').startup(function(use)
       }
     end
   }
-  
+
   -- Trouble
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
+    config = function ()
+      vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
+        {silent = true, noremap = true})
+    end
   }
-  vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
-    {silent = true, noremap = true}
-  )
 
   -- Autocompletion
   use {
     'L3MON4D3/LuaSnip',
-    config = function () require("luasnip.loaders.from_vscode")
-      .load({ paths = { "./snippets" } })
+    config = function ()
+--      require("luasnip.loaders.from_vscode")
+--        .load({ paths = { "./snippets" } })
     end
   }
 
   use {
     "windwp/nvim-autopairs",
     config = function ()
-
       require("nvim-autopairs").setup {
         enable_check_bracket_line = true
       }
@@ -142,9 +143,9 @@ return require('packer').startup(function(use)
 
   -- Neo Tree
   use {
-  "nvim-neo-tree/neo-tree.nvim",
+    "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
-    requires = { 
+    requires = {
       "nvim-lua/plenary.nvim",
       "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
@@ -169,6 +170,18 @@ return require('packer').startup(function(use)
         width = 60,
       }
     end
+  }
+
+  -- Terminal
+  use {
+    "numToStr/FTerm.nvim",
+    config = function()
+      require'FTerm'.setup({
+        blend = 15
+      })
+      vim.keymap.set('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>')
+      vim.keymap.set('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+    end,
   }
 
   -- Theming
@@ -221,7 +234,7 @@ return require('packer').startup(function(use)
         overrides = {
           -- GruvboxBg0 = {bg = nil, fg = nil},
           -- Normal = {bg = nil, fg = nil}
-          --ColorColumn = {bg = '#458588'}
+          -- ColorColumn = {bg = '#458588'}
         }
       }
       vim.cmd("colorscheme gruvbox")

@@ -12,7 +12,6 @@ local lsp = require 'lspconfig'
 local lsp_configs = {
   ansiblels = {},
   bashls = {},
-  pyright = {},
   jsonls = {
 --    function ()
 --      cmd = { "vscode-json-languageserver", "--stdio" }
@@ -38,18 +37,7 @@ local lsp_configs = {
       return vim.fn.getcwd()
     end
   },
-  sumneko_lua = {
-    settings = {
-      Lua = {
-        runtime = {
-          version = 'LuaJIT'
-        },
-        diagnostics = {
-          globals = { 'vim' }
-        },
-      },
-    }
-  },
+  lua_ls = {},
   dockerls = {},
   yamlls = {
     settings = {
