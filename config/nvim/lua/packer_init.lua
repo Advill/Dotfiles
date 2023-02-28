@@ -158,6 +158,19 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- doc view
+  use {
+    "amrbashir/nvim-docs-view",
+    opt = true,
+    cmd = { "DocsViewToggle" },
+    config = function()
+      require("docs-view").setup {
+        position = "right",
+        width = 60,
+      }
+    end
+  }
+
   -- Theming
   use {
     'nvim-lualine/lualine.nvim',
@@ -197,7 +210,7 @@ return require('packer').startup(function(use)
       }
     end
   }
-  use { 
+  use {
     "ellisonleao/gruvbox.nvim",
     config = function()
       require("gruvbox").setup {
