@@ -170,6 +170,12 @@ cmp.setup.cmdline(':', {
     {{ name = 'cmdline' }}
   )
 })
+cmp.setup.filetype('neo-tree', {
+  mapping = cmp.mapping.preset.insert(),
+  sources = cmp.config.sources(
+    { name = 'path' }
+  )
+})
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on(
