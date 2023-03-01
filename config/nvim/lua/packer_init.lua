@@ -98,8 +98,14 @@ return require('packer').startup(function(use)
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
     config = function ()
+      require('trouble').setup {
+        height = 10,
+        mode = 'document_diagnostics',
+        padding = false,
+        auto_close = true,
+      }
       vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
-        {silent = true, noremap = true})
+        {silent = true, noremap = true});
     end
   }
 
@@ -132,14 +138,16 @@ return require('packer').startup(function(use)
       )
     end
   }
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-nvim-lsp-signature-help'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-nvim-lua'
-  use 'hrsh7th/cmp-cmdline'
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'onsails/lspkind.nvim'
+  use {
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-nvim-lsp-signature-help',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-nvim-lua',
+    'hrsh7th/cmp-cmdline',
+    'saadparwaiz1/cmp_luasnip',
+    'onsails/lspkind.nvim'
+  }
 
   -- Neo Tree
   use {
@@ -154,7 +162,6 @@ return require('packer').startup(function(use)
       vim.g.neo_tree_remove_legacy_commands = 1
       require("neo-tree").setup {
         close_if_last_window = true,
-        
       }
       _G.map('n', '<C-n>', ':Neotree toggle <CR>')
     end

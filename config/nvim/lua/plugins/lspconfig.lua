@@ -71,7 +71,8 @@ local cmp = require "cmp";
 local luasnip = require "luasnip"
 local lspkind = require "lspkind"
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-local select_opts = { behavior = cmp.SelectBehavior.Select }
+--local select_opts = { behavior = cmp.SelectBehavior.Select }
+local select_opts = { behavior = cmp.SelectBehavior.Insert }
 
 cmp.setup {
   enabled = function ()
@@ -119,7 +120,7 @@ cmp.setup {
     },
   },
   mapping = {
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
     ['<Up>'] = cmp.mapping.select_prev_item(select_opts),
     ['<Down>'] = cmp.mapping.select_next_item(select_opts),
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
@@ -171,7 +172,9 @@ cmp.setup.cmdline(':', {
   )
 })
 cmp.setup.filetype('neo-tree', {
-  mapping = cmp.mapping.preset.insert(),
+  mapping = cmp.mapping.preset.insert({
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+  }),
   sources = cmp.config.sources(
     { name = 'path' }
   )
