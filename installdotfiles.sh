@@ -25,8 +25,8 @@ echo "Installing ~/.config files"
 for folder in $configfolders; do
   if [[ -e ~/.config/$folder ]]; then
     echo "Moving ${folder}"
-    mv ~/.config/$folder $dir/old/config
+    mv "$HOME/.config/$folder" "$dir/old/config"
   fi
   echo "Creating symlink to ${folder} in config"
-  ln -s $dir/config/$folder ~/.config/$folder
+  ln -s "$dir/config/$folder" "$HOME/.config/$folder"
 done
