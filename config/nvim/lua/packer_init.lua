@@ -110,7 +110,7 @@ return require('packer').startup(function(use)
   }
 
   -- noice
-  use ({
+  use {
     'folke/noice.nvim',
     config = function()
       local telescope = require('telescope')
@@ -119,24 +119,33 @@ return require('packer').startup(function(use)
       telescope.load_extension('noice')
       require("noice").setup({
         lsp = {
-          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
           override = {
             ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
             ["vim.lsp.util.stylize_markdown"] = true,
             ["cmp.entry.get_documentation"] = true,
           },
         },
-        -- you can enable a preset for easier configuration
         presets = {
-          bottom_search = true, -- use a classic bottom cmdline for search
-          command_palette = true, -- position the cmdline and popupmenu together
-          long_message_to_split = true, -- long messages will be sent to a split
-          inc_rename = false, -- enables an input dialog for inc-rename.nvim
-          lsp_doc_border = false, -- add a border to hover docs and signature help
+          bottom_search = true,
+          command_palette = true,
+          long_message_to_split = true,
+          inc_rename = false,
+          lsp_doc_border = true,
         },
       })
-    end
-  })
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      {
+        "rcarriga/nvim-notify",
+        config = function ()
+          require('notify').setup({
+            background_colour = "#000000"
+          })
+        end,
+      },
+    }
+  }
 
   -- Autocompletion
   use 'rafamadriz/friendly-snippets'
@@ -221,6 +230,16 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- Session saving
+  use {
+    "folke/persistence.nvim",
+    event = "BufReadPre", -- this will only start session saving when an actual file was opened
+    module = "persistence",
+    config = function()
+      require("persistence").setup()
+    end,
+  }
+
   -- Theming
   use {
     'nvim-lualine/lualine.nvim',
@@ -241,12 +260,12 @@ return require('packer').startup(function(use)
           lualine_z = {'location'}
         },
         tabline= {
-          lualine_a = {'buffers'},
+          lualine_a = {'tabs'},
           lualine_b = {},
           lualine_c = {},
           lualine_x = {},
           lualine_y = {},
-          lualine_z = {'tabs'}
+          lualine_z = {'buffers'}
         },
         inactive_sections = {
           lualine_a = {},

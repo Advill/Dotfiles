@@ -27,7 +27,6 @@ vim.opt.showmatch = true
 
 -- Performance
 vim.opt.hidden = true
-vim.opt.lazyredraw = true
 
 -- colors
 vim.opt.termguicolors = true
