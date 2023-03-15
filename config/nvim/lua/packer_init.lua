@@ -204,6 +204,23 @@ return require('packer').startup(function(use)
       vim.g.neo_tree_remove_legacy_commands = 1
       require("neo-tree").setup {
         close_if_last_window = true,
+        sort_case_insensitive = true,
+        filesystem = {
+          filtered_items = {
+            visible = true,
+            hide_dotfiles = false,
+            hide_hidden = false,
+            hide_by_name = {
+              "node_modules"
+            },
+          },
+          follow_current_file = true,
+          group_empty_dirs = true,
+        },
+        buffers = {
+          follow_current_file = true,
+          group_empty_dirs = true,
+        }
       }
       _G.map('n', '<C-n>', ':Neotree toggle <CR>')
     end
