@@ -4,12 +4,13 @@ return {
   keys = {
     { "<C-n>", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
   },
-  init = function ()
+  config = function()
     vim.g.neo_tree_remove_legacy_commands = 1
-  end,
-  opts = {
+    require("neo-tree").setup {
       close_if_last_window = true,
-  },
+    }
+    _G.map('n', '<C-n>', ':Neotree toggle <CR>')
+  end,
   dependencies = {
     "nvim-lua/plenary.nvim",
     "kyazdani42/nvim-web-devicons",

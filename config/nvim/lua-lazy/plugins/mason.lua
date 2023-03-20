@@ -7,5 +7,5 @@ return {
       auto_update = true,
     },
   },
-  'jayp0521/mason-null-ls.nvim'
+  'jayp0521/mason-null-ls.nvim',
 }
