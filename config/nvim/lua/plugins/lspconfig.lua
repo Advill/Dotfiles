@@ -41,6 +41,12 @@ local lsp_configs = {
         hover = true,
         completion = true,
         validate = true,
+        schemas = {
+          ['https://gitlab.com/.gitlab-ci.yml'] = '*/ci-cd/*.yaml',
+        },
+        customTags = {
+          '!reference sequence',
+        },
       },
     },
   },
