@@ -1,11 +1,16 @@
 return {
-  'williamboman/mason.nvim',
   {
-    'williamboman/mason-lspconfig.nvim',
-    opts = {
-      automatic_installation = true,
-      auto_update = true,
-    },
-  },
-  'jayp0521/mason-null-ls.nvim',
+    'williamboman/mason.nvim',
+    lazy = false,
+    dependencies = {
+      {
+        'jayp0521/mason-null-ls.nvim',
+        'williamboman/mason-lspconfig.nvim',
+        opts = {
+          automatic_installation = true,
+          auto_update = true,
+        },
+      }
+    }
+  }
 }
