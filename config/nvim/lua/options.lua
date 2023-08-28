@@ -31,6 +31,10 @@ vim.opt.hidden = true
 -- colors
 vim.opt.termguicolors = true
 
+-- Splits
+vim.o.splitbelow = true
+vim.o.splitright = false
+
 -- Tabs
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2

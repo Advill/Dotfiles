@@ -8,6 +8,7 @@ return {
         mode = 'document_diagnostics',
         padding = false,
         auto_close = true,
+
       }
       vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
       {silent = true, noremap = true});

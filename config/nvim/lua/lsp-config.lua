@@ -28,9 +28,9 @@ local on_attach = function(client, bufnr)
     buf_map(bufnr, "n", "ga", ":LspCodeAction<CR>")
     buf_map(bufnr, "n", "<Leader>a", ":LspDiagLine<CR>")
     buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>")
-    if client.resolved_capabilities.document_formatting then
-        vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-    end
+--    if client.resolved_capabilities.document_formatting then
+--        vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+--    end
 end
 lspconfig.tsserver.setup({
     on_attach = function(client, bufnr)

@@ -34,6 +34,11 @@ map('n', '<S-Tab>', function ()
   end
   return cmd .. '<CR>'
 end, {expr = true, desc = 'Previous tab'})
+
+map('n', '<Leader>o', ':Navbuddy<CR>', { desc = 'Open Navbuddy' })
+map('n', '<C-o>', ':DocsViewToggle<CR>', { desc = 'Open Docs View' })
+--map('n', '<S-o>', ':DocsViewUpdate<CR>', { desc = 'Open Docs View' })
+
 map('n', '<Leader>t', ':tabnew<CR>', {desc = 'Create a new tab'})
 map('n', '<Leader>c', ':tabclose<CR>', {desc = 'Close current tab'})
 
