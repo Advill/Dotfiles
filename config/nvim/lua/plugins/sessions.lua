@@ -8,7 +8,7 @@ return {
         sessions_dir = path:new(vim.fn.stdpath('data'), 'sessions'),
         session_filename_to_dir = session_filename_to_dir,
         dir_to_session_filename = dir_to_session_filename,
-        autoload_mode = config.AutoloadMode.LastSession,
+        autoload_mode = config.AutoloadMode.CurrentDir,
         autosave_last_session = true,
         autosave_ignore_not_normal = true,
         autosave_ignore_dirs = {},
