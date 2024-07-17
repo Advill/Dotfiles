@@ -32,7 +32,12 @@ fi
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-nvm)
+plugins=(zsh-nvm zsh-autosuggestions history-substring-search zsh-syntax-highlighting kubectl)
+# syntax highlighting must be last
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#928374'
+ZSH_AUTOSUGGEST_STRATEGY=(completion history)
+
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=60
 
 source $ZSH/oh-my-zsh.sh
 
