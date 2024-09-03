@@ -25,7 +25,7 @@ return {
       }
 
       -- tab completion
-      opts.mapping = vim.tbl_extend("keep", opts.mapping, {
+      opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<CR>"] = cmp.mapping.confirm({ select = false }),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
