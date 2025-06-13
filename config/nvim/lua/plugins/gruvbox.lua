@@ -17,14 +17,9 @@ return {
       overrides = {
         -- GruvboxBg0 = {bg = nil, fg = nil},
         -- Normal = {bg = nil, fg = nil}
-        -- ColorColumn = {bg = '#458588'}
+        -- ColorColumn = { bg = "#458588" },
       },
     },
-    init = function()
-      require("notify").setup({
-        background_colour = "#000000",
-      })
-    end,
   },
   -- Configure LazyVim to load gruvbox
   {

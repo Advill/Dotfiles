@@ -1,5 +1,4 @@
 vim.opt.mouse = "a"
-vim.opt.scrolloff = 15
 vim.opt.cursorline = true
 -- vim.opt.spelling = 'en'
 vim.opt.ttyfast = true

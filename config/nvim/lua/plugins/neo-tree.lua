@@ -8,41 +8,27 @@ return {
         filtered_items = {
           visible = true,
           force_visible_in_empty_folder = true,
-          always_show = {
-            ".gitlab-ci.yml",
-            ".gitlab-ci.yaml",
-            ".gitlab",
-            ".gitlab/*",
-          },
+          follow_current_file = { enabled = false },
+          hide_dotfiles = false,
           never_show = {
             ".git",
             ".git/*",
+            "node_modules",
+            ".DS_Store",
+            "thumbs.db",
+          },
+          never_show_by_pattern = {
+            "*/src/*/tsconfig.json",
+            ".null-ls_*",
           },
         },
         group_empty_dirs = true,
       },
-      --[[
-      event_handlers = {
-        {
-          event = "neo_tree_popup_input_ready",
-          handler = function()
-            vim.cmd("stopinsert")
-          end,
-        },
-        {
-          event = "neo_tree_buffer_enter",
-          handler = function()
-            vim.cmd("highlight! Cursor blend=100")
-          end,
-        },
-        {
-          event = "neo_tree_buffer_leave",
-          handler = function()
-            vim.cmd("highlight! Cursor guibg=#5f87af blend=0")
-          end,
+      window = {
+        mappings = {
+          ["P"] = { "toggle_preview", config = { use_float = true } },
         },
       },
-      --]]
     },
     keys = {
       {

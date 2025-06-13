@@ -1,5 +1,0 @@
-return {
-  {
-    "towolf/vim-helm",
-  },
-}
