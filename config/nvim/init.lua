@@ -1,5 +1,3 @@
-_G.config = {}
-require('keymap')
-require('options')
-require('packer_init')
-require('plugins/lspconfig')
+-- Using the lazyvim starter
+-- https://github.com/LazyVim/starter
+require("config.lazy")
