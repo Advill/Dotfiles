@@ -36,7 +36,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#928374'
 ZSH_AUTOSUGGEST_STRATEGY=(completion history)
 
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=60
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration

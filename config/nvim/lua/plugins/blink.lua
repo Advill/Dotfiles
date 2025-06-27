@@ -2,11 +2,11 @@ return {
   "saghen/blink.cmp",
   opts = {
     keymap = {
-      preset = "super-tab",
+      preset = "enter",
       ["<Tab>"] = {
         function(cmp)
           if cmp.snippet_active() then
-            return cmp.select_and_accept()
+            return cmp.snippet_forward()
           else
             return cmp.select_next()
           end
@@ -17,7 +17,7 @@ return {
       ["<S-Tab>"] = {
         function(cmp)
           if cmp.snippet_active() then
-            return cmp.select_prev_and_accept()
+            return cmp.snippet_backward()
           else
             return cmp.select_prev()
           end
